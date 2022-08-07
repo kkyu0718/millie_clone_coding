@@ -4,11 +4,7 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 
 function NavBar() {
   
-  const Layout = styled.div`
-    height : 10vh;
-    display : flex;
-    flex-direction : column;
-  `
+
   
   const Button = styled.button`
     height : 30px;
@@ -20,8 +16,7 @@ function NavBar() {
   `
   
   return (
-    <Layout>
-      <div style = {{ display : 'flex', justifyContent : 'center' , borderBottom: 'solid 0.1px #d2d2d2'}}>
+      <div style = {{ display : 'flex', justifyContent : 'center' , borderBottom: 'var(--border)', height : '70px'}}>
         <div style = {{ width : '60vw' ,display : 'flex', justifyContent : 'space-between', alignItems : 'center'}}>
           <div style = {{ }}>
             <img src="https://d3udu241ivsax2.cloudfront.net/v3/images/brand/full-logo.f9246fa0ca04c7cef80a5d0f5409f0be.png" style = {{ height : '25px'}}/>
@@ -33,7 +28,6 @@ function NavBar() {
           </div>
         </div>
       </div>
-    </Layout>
   )
 }
 

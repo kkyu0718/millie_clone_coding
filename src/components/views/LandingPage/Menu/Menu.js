@@ -2,7 +2,7 @@ import React from 'react'
 
 function Menu() {
   return (
-    <div>
+    <div style={{   height : '30px', borderBottom : 'var(--border)'}}>
       Menu
     </div>
   )

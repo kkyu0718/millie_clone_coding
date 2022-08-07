@@ -9,8 +9,7 @@ function Sidebar() {
         display : flex;
         flex-direction : column;
         justify-content : space-between;
-        border-right : solid 0.01px;
-        border-color : #d2d2d2;
+        border-right : var(--border)
     `
 
   return (
