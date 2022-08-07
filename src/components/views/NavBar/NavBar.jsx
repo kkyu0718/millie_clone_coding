@@ -14,7 +14,7 @@ function NavBar() {
   `
   
   return (
-      <div style = {{ display : 'flex', justifyContent : 'center' , borderBottom: 'var(--border)', height : '70px'}}>
+      <div style = {{ display : 'flex', justifyContent : 'center' , borderBottom: 'var(--border)', height : '50px'}}>
         <div style = {{ width : '60vw' ,display : 'flex', justifyContent : 'space-between', alignItems : 'center'}}>
           <div style = {{ }}>
             <img src="https://d3udu241ivsax2.cloudfront.net/v3/images/brand/full-logo.f9246fa0ca04c7cef80a5d0f5409f0be.png" style = {{ height : '25px'}}/>
