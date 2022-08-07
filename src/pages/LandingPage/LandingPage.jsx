@@ -7,18 +7,31 @@ import Rank from './Rank/Rank'
 import Today from './Today/Today'
 import Footer from '../../components/views/Footer/Footer'
 import SliderBanner from './SliderBanner/Slider'
+import styled from 'styled-components'
 
 function LandingPage() {
+
+  const Container = styled.div`
+    display : flex;
+    justify-content : center;
+    flex-direction : column;
+    align-items : center;
+  `
   return (
     <>
       <NavBar sticky = "top"/>
       <Menu/>
       <SliderBanner/>
-      <MyInfo/>
-      <Recommendation/>
-      <Rank/>
-      <Today/>
-      <Footer/>
+
+      <Container>
+        <div style={{ width : '60vw'}}>
+        <MyInfo/>
+        <Recommendation/>
+        <Rank/>
+        <Today/>
+        <Footer/>
+        </div>
+      </Container>
     </>
   )
 }
