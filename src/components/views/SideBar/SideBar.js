@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import SidebarItem from "./SidebarItem";
 import Menu from './Menu'
 import LowBar from "./LowBar";
 

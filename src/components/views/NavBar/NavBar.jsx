@@ -4,8 +4,6 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 
 function NavBar() {
   
-
-  
   const Button = styled.button`
     height : 30px;
     border : none;

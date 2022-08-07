@@ -1,19 +1,19 @@
 import React from 'react'
 import NavBar from '../../components/views/NavBar/NavBar'
 import Menu from '../../components/views/Menu/Menu'
-import Slider from './Slider/Slider'
 import MyInfo from './MyInfo/MyInfo'
 import Recommendation from './Recommendation/Recommendation'
 import Rank from './Rank/Rank'
 import Today from './Today/Today'
 import Footer from '../../components/views/Footer/Footer'
+import SliderBanner from './SliderBanner/Slider'
 
 function LandingPage() {
   return (
     <>
-      <NavBar/>
+      <NavBar sticky = "top"/>
       <Menu/>
-      <Slider/>
+      <SliderBanner/>
       <MyInfo/>
       <Recommendation/>
       <Rank/>
