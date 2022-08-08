@@ -6,7 +6,7 @@ import Recommendation from './Recommendation/Recommendation'
 import Rank from './Rank/Rank'
 import Today from './Today/Today'
 import Footer from '../../components/views/Footer/Footer'
-import SliderBanner from './SliderBanner/Slider'
+import SliderBanner from './SliderBanner/SliderBanner'
 import styled from 'styled-components'
 
 function LandingPage() {

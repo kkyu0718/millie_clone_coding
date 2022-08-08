@@ -3,7 +3,7 @@ import Slider from 'react-slick'
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import SliderContent from '../../../asset/SliderContent';
+import SliderContent from '../../../asset/contents/SliderContent';
 import styled from 'styled-components';
 
 function SliderBanner() {

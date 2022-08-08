@@ -27,7 +27,7 @@ function LowBar() {
             return (
                 <div style = {{height : '80px' , width : '50px', display : 'flex', alignItems : 'center', justifyContent : 'center'}}>
                     {menu.img ? 
-                        <Img alt = 'millie' src = {`${process.env.PUBLIC_URL}/${menu.img}`}/>
+                        <Img alt = 'millie' src = {`images/${menu.img}`}/>
                         : menu.icon}
                 </div>
             );
