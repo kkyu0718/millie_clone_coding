@@ -1,0 +1,19 @@
+{
+  "name": "react-collaborative-timer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkyu0718/millie_clone_coding.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kkyu0718/millie_clone_coding/issues"
+  },
+  "homepage": "https://github.com/kkyu0718/millie_clone_coding#readme"
+}
