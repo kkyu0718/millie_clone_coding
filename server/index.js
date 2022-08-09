@@ -6,6 +6,7 @@ const config = require('./config/key');
 const { auth } = require('./middleware/auth');
 const { User } = require("./models/User");
 
+
 //application/x-www-form-urlencoded 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -110,3 +111,5 @@ app.get('/api/users/logout', auth, (req, res) => {
 const port = 5000
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+
