@@ -25,7 +25,7 @@ function LowBar() {
     <Layout>
       {menus.map((menu, index) => {
             return (
-                <div style = {{height : '80px' , width : '50px', display : 'flex', alignItems : 'center', justifyContent : 'center'}}>
+                <div key = {index} style = {{height : '80px' , width : '50px', display : 'flex', alignItems : 'center', justifyContent : 'center'}}>
                     {menu.img ? 
                         <Img alt = 'millie' src = {`images/${menu.img}`}/>
                         : menu.icon}

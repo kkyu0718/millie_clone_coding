@@ -1,11 +1,13 @@
 import React from 'react'
-import TitleBar from '../../../utils/TitleBar'
+import Card_lg from '../../../utils/Card/Card_lg'
+import Slider from '../../../utils/Slider/Slider'
+import TitleBar from '../../../utils/Title/TitleBar'
 
 function Recommendation() {
   return (
     <div>
       <TitleBar title = {'당신을 위한 추천'}/>
-      <div>슬라이더..</div>
+      <Slider Card = {Card_lg}/>
     </div>
   )
 }
