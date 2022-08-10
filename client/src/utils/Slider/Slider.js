@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 
@@ -6,14 +6,11 @@ function Slider({Card}) {
 
     const [Drag, setDrag] = useState(false)
     const [Prev, setPrev] = useState(0)
+
     const [Move, setMove] = useState(0)
     const [Left, setLeft] = useState(0)
-
-    // console.log("------start------")
-    // console.log("Left : ", Left)
-    // console.log("Right : ", Right)
-    // console.log("Move : ", Move)
-
+    
+    let sum = 0
 
     const SliderContainer = styled.div`
     height : auto;
@@ -24,76 +21,81 @@ function Slider({Card}) {
         display: none;    
 `
     const SliderTrack = styled.div`
-        position : relative;
-        left : ${Left}px;
+        transform : translateX(${Left}px);
         height : auto;
-        width : ${2400}px;
+        width : ${3000}px;
         background-color : blue;
         display : flex;    
         }
         `
 
     const onMouseDownHandler = (e) => {
-
-        console.log("down",e)
+        console.log("mouse down")
         setDrag(true)
         setPrev(e.clientX)
     }
 
-    const onMouseMoveHandler = (e) => {
+    const onWindowMouseMoveHandler = (e) => {
+        console.log("mouse move")
+        setPrev(e.clientX)
+        let Pres = e.clientX
+        let move = Pres - Prev
+        let result = Left + move
+        if ( result > 0 ){
+            result = 0 ;
+        } else if ( result < -1500 ) {
+            result = -1500
+        }
 
-        if (Drag === true) {
-            let Pres = e.clientX
-            setPrev( Pres )
-            setMove( Pres - Prev )
-            console.log(Move)
+        setLeft(result)
+
+    }
+
+    const onWindowMouseUpHandler = (e) => {
+
+        setDrag(false)
 
         }
-    }
-
-    const onMouseUpHandler = (e) => {
-
-        console.log("up", e)
-        setDrag(false)
-    }
-
-    const onMouseOutHandler = (e) => {
-        console.log("out", e)
-        setDrag(false)
-    }
-
+    
     useEffect(() => {
-        // console.log('Move use Effect')
-        // console.log("Left : ", Left)
-        // console.log("Right : ", Right)
-        // console.log("Move : ", Move)
-        let Result = Left + Move
-        if ( Result > 0 ){
-            Result = 0 ;
-        } else if ( Result < -2400 ) {
-            Result = 2400
-        }
-        setLeft(Result)
-    }, [Move])
+
+        if (Drag === true){
+            window.addEventListener('mousemove', onWindowMouseMoveHandler);
+            window.addEventListener('mouseup', onWindowMouseUpHandler); 
+        } 
+        return(
+            () => {
+                window.removeEventListener('mousemove', onWindowMouseMoveHandler);
+                window.removeEventListener('mouseup', onWindowMouseUpHandler);
+            }
+        )
+        } 
+    , [Drag])
     
 
   return (<div>
     <div>left is {Left}</div>
     <div>move is {Move}</div>
+    <div>sum is {sum + Move}</div>
+
     <SliderContainer>
         <SliderTrack 
             onMouseDown = {onMouseDownHandler} 
-            onMouseMove = {onMouseMoveHandler}
-            onMouseUp = {onMouseUpHandler}
-            onMouseOut = {onMouseOutHandler} 
             Left = {Left}
         >
-            <Card >card</Card>
-            <Card >card</Card>
-            <Card >card</Card>
-            <Card >card</Card>
-            <Card >card</Card>
-            <Card >card</Card>
+            
+            
+            <Card num = {1} ></Card>
+            <Card num = {2}></Card>
+            <Card num = {3}>card3</Card>
+            <Card num = {4}>card4</Card>
+            <Card num = {5}>card5</Card>
+            <Card num = {6}>card6</Card>
+            <Card num = {7}>card7</Card>
+            <Card num = {8}>card8</Card>
+            <Card num = {9}>card9</Card>
+            <Card num = {10}>card10</Card>
+
         </SliderTrack>
     </SliderContainer>
     </div>

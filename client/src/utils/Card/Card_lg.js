@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Card_lg() {
+function Card_lg({num}) {
 
   return (
     <div style = 
@@ -11,7 +11,7 @@ function Card_lg() {
     }}
     onMouseDown = {(e) => {e.preventDefault()}}
     >
-      Card_lg
+      {num}
     </div>
   )
 }
