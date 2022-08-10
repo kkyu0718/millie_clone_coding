@@ -1,14 +1,19 @@
 import React from 'react'
-import Card_lg from '../../../utils/CardDesign/CardSize'
-import RecommendationCard from '../../../utils/CardItem/RecommendationCard'
-import Slider from '../../../utils/Slider/Slider'
+import RecommendationSlider from '../../../utils/Slider/RecommendSlider'
 import TitleBar from '../../../utils/Title/TitleBar'
+import { API_KEY } from '../../../api/config'
 
 function Recommendation() {
+
+  const fetchRecommend = {
+    url : `api/recommend.api?key=${API_KEY}&categoryId=100&output=json`
+  }
+
+
   return (
     <div>
       <TitleBar title = {'당신을 위한 추천'}/>
-      <Slider CardItem = {RecommendationCard}/>
+      <RecommendationSlider Data = {fetchRecommend}/>
     </div>
   )
 }

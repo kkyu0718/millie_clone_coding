@@ -10,6 +10,7 @@ import SliderBanner from './SliderBanner/SliderBanner'
 import styled from 'styled-components'
 import axios from 'axios'
 import {API_KEY} from '../../api/config'
+import Sidebar from '../../components/views/SideBar/SideBar'
 
 function LandingPage() {
 
@@ -18,7 +19,6 @@ function LandingPage() {
     console.log("request is",request.data)
   }
   
-  // fetchData();
 
   const Container = styled.div`
     display : flex;
@@ -27,21 +27,25 @@ function LandingPage() {
     align-items : center;
   `
   return (
-    <>
-      <NavBar sticky = "top"/>
-      <Menu/>
-      <SliderBanner/>
+    <div>
+      <Sidebar />
+      <div >
+        <NavBar/>
 
-      <Container>
-        <div style={{ width : '60vw', flexWrap : 'nowrap'}}>
-        <MyInfo/>
-        <Recommendation/>
-        <Rank/>
-        <Today/>
-        <Footer/>
-        </div>
-      </Container>
-    </>
+        <Menu/>
+        <SliderBanner/>
+
+        <Container>
+          <div style={{ width : '60vw', flexWrap : 'nowrap'}}>
+          <MyInfo/>
+          <Recommendation/>
+          <Rank/>
+          <Today/>
+          <Footer/>
+          </div>
+        </Container>
+      </div>
+    </div>
   )
 }
 

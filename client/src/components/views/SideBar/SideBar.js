@@ -8,7 +8,10 @@ function Sidebar() {
         display : flex;
         flex-direction : column;
         justify-content : space-between;
-        border-right : var(--border)
+        border-right : var(--border);
+        position : fixed;
+        top : 0; 
+        height : 100%;
     `
 
   return (

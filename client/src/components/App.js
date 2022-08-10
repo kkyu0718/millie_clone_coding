@@ -22,7 +22,6 @@ function App() {
     <Suspense fallback={(<div>Loading...</div>)}>
       <BrowserRouter>
         <Layout>
-          <Sidebar/>
           <Page>
             <Routes>
               <Route path="/" element={<LandingPage/>} />
