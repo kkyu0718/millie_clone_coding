@@ -27,7 +27,7 @@ function Slider({CardItem}) {
         `
 
     const onMouseDownHandler = (e) => {
-        console.log("mouse down")
+        console.log("slider track : mouse down", e)
         setDrag(true)
         setPrev(e.clientX)
     }
@@ -78,9 +78,7 @@ function Slider({CardItem}) {
             Left = {Left}
         >   
         <CardItem/>
-         
-         
-            
+
         </SliderTrack>
     </SliderContainer>
   )
