@@ -7,10 +7,8 @@ function Slider({Card}) {
     const [Drag, setDrag] = useState(false)
     const [Prev, setPrev] = useState(0)
 
-    const [Move, setMove] = useState(0)
     const [Left, setLeft] = useState(0)
     
-    let sum = 0
 
     const SliderContainer = styled.div`
     height : auto;
@@ -73,10 +71,7 @@ function Slider({Card}) {
     , [Drag])
     
 
-  return (<div>
-    <div>left is {Left}</div>
-    <div>move is {Move}</div>
-    <div>sum is {sum + Move}</div>
+  return (
 
     <SliderContainer>
         <SliderTrack 
@@ -98,7 +93,6 @@ function Slider({Card}) {
 
         </SliderTrack>
     </SliderContainer>
-    </div>
   )
 }
 
