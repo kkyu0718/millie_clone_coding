@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 
-function Slider({Card, CardItem}) {
+function Slider({CardItem}) {
 
     const [Drag, setDrag] = useState(false)
     const [Prev, setPrev] = useState(0)
