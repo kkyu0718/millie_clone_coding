@@ -1,4 +1,5 @@
 import React from 'react'
+import { MdSportsRugby } from 'react-icons/md'
 import styled from 'styled-components'
 
 
@@ -30,10 +31,8 @@ const Card_sm = styled.div`
 
 const Card_slide = styled.div`
   height : 500px;
-  width : ${200}px;
   border : var(--border)
+  background : linear-gradient(rgb())
 `
-
-
 
 export {Card_lg, Card_md, Card_sm, Card_slide}

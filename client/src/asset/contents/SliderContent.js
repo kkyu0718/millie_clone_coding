@@ -1,4 +1,3 @@
-import React from 'react'
 
 const SliderContent =  [
     {   FirstTitle : '남은 여름방학', SecondTitle :'밀리로 갓생살자!', text : '토익/토플부터 공무원까지'},

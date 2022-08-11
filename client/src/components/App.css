@@ -1,7 +1,7 @@
 :root {
   --border : solid 0.1px #d2d2d2;
   --darkgray : #464646;
-  --lightgray : #d2d2d2
+  --lightgray : #d2d2d2;
 }
 
 .App {

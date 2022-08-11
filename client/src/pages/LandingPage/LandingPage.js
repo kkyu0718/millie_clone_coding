@@ -25,11 +25,12 @@ function LandingPage() {
   const MainPageRef = useRef()
 
   useEffect(() => {
-
-    setWidth(MainPageRef.current.clientWidth)
-
+    setWidth(MainPageRef.current.clientWidth)    
+    window.addEventListener("resize", ()=>{    setWidth(MainPageRef.current.clientWidth)    })
+    
   }, [])
-  
+
+
 
   const Container = styled.div`
     display : flex;
@@ -59,7 +60,7 @@ function LandingPage() {
         <NavBar/>
 
         <Menu/>
-        <SliderBanner Width = {Width}/>
+        <SliderBanner Width = {Width} style = {{  width : {Width} }}/>
 
         <Container>
           <div style={{ width : '80vw'}}>
@@ -67,9 +68,10 @@ function LandingPage() {
           <Recommendation/>
           <Rank/>
           <Today/>
-          <Footer/>
           </div>
         </Container>
+        <Footer/>
+
       </MainPage>
     </Layout>
   )

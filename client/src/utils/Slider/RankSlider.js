@@ -99,9 +99,10 @@ function RankSlider({ Data}) {
         <SliderTrack 
             onMouseDown = {onMouseDownHandler} 
             Left = {Left}
+            style = {{cursor : 'grab'}}
         >   
         {Books.map((book, index) => {
-            return (<Card_lg key = {index}>
+            return (<Card_lg key = {index} style = {{   background : '#eff1f5'}}>
                         <div style={{fontFamily : 'KoPubDotumMedium', fontSize : '20px', height : '20%', display : 'flex', alignItems : 'center'}}>
                             <div>{book.title}</div>
                         </div>

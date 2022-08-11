@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 import { API_KEY } from '../../api/config'
 import {Card_lg, Card_sm} from '../CardDesign/CardSize'
+import Color from '../../asset/contents/Color'
 
 function RecommendationSlider({ Data}) {
 
@@ -100,9 +101,11 @@ function RecommendationSlider({ Data}) {
         <SliderTrack 
             onMouseDown = {onMouseDownHandler} 
             Left = {Left}
+            style = {{cursor : 'grab'}}
+
         >   
         {Books.map((book, index) => {
-            return (<Card_lg key = {index}>
+            return (<Card_lg key = {index} style = {{background : `linear-gradient( ${Color[(index)%Color.length]}, ${Color[(index+1)%Color.length]})`}}>
                         <div style={{fontFamily : 'KoPubDotumMedium', fontSize : '20px', height : '20%', display : 'flex', alignItems : 'center'}}>
                             <div>{book.title}</div>
                         </div>
