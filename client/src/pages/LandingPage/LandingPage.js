@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import NavBar from '../../components/views/NavBar/NavBar'
 import Menu from '../../components/views/Menu/Menu'
 import MyInfo from './MyInfo/MyInfo'
@@ -11,13 +11,24 @@ import styled from 'styled-components'
 import axios from 'axios'
 import {API_KEY} from '../../api/config'
 import Sidebar from '../../components/views/SideBar/SideBar'
+import LowBar from '../../components/views/SideBar/LowBar'
 
 function LandingPage() {
 
-  async function fetchData() {
-    const request = await axios.get(`api/bestSeller.api?key=${API_KEY}&categoryId=100`);
-    console.log("request is",request.data)
-  }
+  // async function fetchData() {
+  //   const request = await axios.get(`api/bestSeller.api?key=${API_KEY}&categoryId=100`);
+  //   console.log("request is",request.data)
+  // }
+  
+  const [Width, setWidth] = useState(0)
+
+  const MainPageRef = useRef()
+
+  useEffect(() => {
+
+    setWidth(MainPageRef.current.clientWidth)
+
+  }, [])
   
 
   const Container = styled.div`
@@ -26,17 +37,32 @@ function LandingPage() {
     flex-direction : column;
     align-items : center;
   `
+
+  const Layout = styled.div`
+    display : flex;
+        
+    `
+
+  const MainPage = styled.div`
+    width : 100%;
+    display : flex;
+    flex-direction : column;
+  `
+
+
+
   return (
-    <div>
+    <Layout>
       <Sidebar />
-      <div >
+      
+      <MainPage ref = {MainPageRef}>
         <NavBar/>
 
         <Menu/>
-        <SliderBanner/>
+        <SliderBanner Width = {Width}/>
 
         <Container>
-          <div style={{ width : '60vw', flexWrap : 'nowrap'}}>
+          <div style={{ width : '80vw'}}>
           <MyInfo/>
           <Recommendation/>
           <Rank/>
@@ -44,8 +70,8 @@ function LandingPage() {
           <Footer/>
           </div>
         </Container>
-      </div>
-    </div>
+      </MainPage>
+    </Layout>
   )
 }
 

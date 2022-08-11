@@ -28,7 +28,12 @@ const Card_sm = styled.div`
   border-radius : 3%;
 `
 
+const Card_slide = styled.div`
+  height : 500px;
+  width : ${200}px;
+  border : var(--border)
+`
 
 
 
-export {Card_lg, Card_md, Card_sm}
+export {Card_lg, Card_md, Card_sm, Card_slide}

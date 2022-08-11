@@ -8,21 +8,11 @@ import styled from "styled-components";
 
 function App() {
 
-  const Layout = styled.div`
-    height : 100vh;
-    display : flex;
-    flex-direction : row;  
-  `
 
-  const Page = styled.div`
-    flex : 1;
-  `
 
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
       <BrowserRouter>
-        <Layout>
-          <Page>
             <Routes>
               <Route path="/" element={<LandingPage/>} />
               <Route path="/reader" element={<LandingPage/>} />
@@ -31,8 +21,6 @@ function App() {
               <Route path="/management" element={<LandingPage/>} />
               <Route path="/setting" element={<LandingPage/>} />
             </Routes>
-          </Page>
-        </Layout>
       </BrowserRouter>
     </Suspense>
   );
