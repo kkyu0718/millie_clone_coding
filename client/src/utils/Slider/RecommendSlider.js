@@ -78,6 +78,7 @@ function RecommendationSlider({ Data}) {
         setDrag(false)
 
         }
+
     
     useEffect(() => {
 

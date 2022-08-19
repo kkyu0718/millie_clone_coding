@@ -4,7 +4,7 @@ import React, { Suspense } from 'react';
 import LandingPage from '../pages/LandingPage/LandingPage'
 import Sidebar from './views/SideBar/SideBar';
 import styled from "styled-components";
-
+import LoginPage from '../pages/LoginPage/LoginPage';
 
 function App() {
 
@@ -20,6 +20,8 @@ function App() {
               <Route path="/my-library" element={<LandingPage/>} />
               <Route path="/management" element={<LandingPage/>} />
               <Route path="/setting" element={<LandingPage/>} />
+              <Route path="/login" element={<LoginPage/>} />
+
             </Routes>
       </BrowserRouter>
     </Suspense>
