@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd client && npm run start",
+    "server": "cd server && npm run start:dev",
+    "dev":"concurrently \"npm run client\" \"npm run server\""
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/kkyu0718/millie_clone_coding/issues"
   },
-  "homepage": "https://github.com/kkyu0718/millie_clone_coding#readme"
+  "homepage": "https://github.com/kkyu0718/millie_clone_coding#readme",
+  "dependencies": {
+    "concurrently": "^7.3.0"
+  }
 }
