@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && npm run start",
     "server": "cd server && npm run start:dev",
-    "dev":"concurrently \"npm run client\" \"npm run server\""
+    "dev": "concurrently \"npm run client\" \"npm run server\""
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/kkyu0718/millie_clone_coding#readme",
   "dependencies": {
+    "class-validator": "^0.13.2",
     "concurrently": "^7.3.0"
   }
 }
