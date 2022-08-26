@@ -20,9 +20,6 @@
   },
   "homepage": "https://github.com/kkyu0718/millie_clone_coding#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "class-transformer": "^0.5.1",
-    "class-validator": "^0.13.2",
     "concurrently": "^7.3.0"
   }
 }
