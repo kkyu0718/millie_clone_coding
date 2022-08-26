@@ -2,6 +2,8 @@
   --border : solid 0.1px #d2d2d2;
   --darkgray : #464646;
   --lightgray : #d2d2d2;
+  --yellow: #FFEB60;
+  --white : #EFF1F5;
 }
 
 .App {
@@ -42,3 +44,4 @@
     transform: rotate(360deg);
   }
 }
+
