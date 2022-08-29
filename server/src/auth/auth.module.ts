@@ -14,8 +14,7 @@ import { UserRepository } from './user.repository';
     secret: 'Secret1234',
     signOptions: {
       expiresIn: 60*60,
-    }
-  }),
+    }}),
     TypeOrmModule.forFeature( [UserRepository] )
   ], 
   controllers: [AuthController],
