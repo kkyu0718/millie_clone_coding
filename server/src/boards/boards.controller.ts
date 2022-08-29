@@ -2,8 +2,8 @@ import { Body, Controller, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { BoardsService } from './boards.service';
 
-@UseGuards(AuthGuard('jwt'))
 @Controller('boards')
+@UseGuards(AuthGuard('jwt'))
 export class BoardsController {
     constructor(
         private boardsService: BoardsService
