@@ -1,7 +1,9 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import { login, loginUser } from '../../../_actions/user_actions'
 const Section = styled.div`
         width : 35vw;
         height : 100vh;
@@ -38,6 +40,7 @@ const Section = styled.div`
   `
 
 function LoginSection() {
+    const navigate = useNavigate();
     const dispatch = useDispatch()
 
     const [Username, setUsername] = useState("")
@@ -51,7 +54,7 @@ function LoginSection() {
         setPassword(event.currentTarget.value)
     }
     
-    const submitHandler = (e)=>{
+    const submitHandler = async (e)=>{
         e.preventDefault()
 
         let body = {
@@ -59,9 +62,21 @@ function LoginSection() {
             password: Password
         }
 
-        axios.post('http://localhost:5000/auth/signin', body)
-            .then(res => res.data)
+        let userData = await axios.post('http://localhost:5000/auth/signin', body)
+            .then(response => {
+                console.log("axios.post userData:", response.data)
+                return response.data
+            })
+            .catch(err => {
+                console.log("로그인에 실패하였습니다", err)
+            })
+        
+        if(userData){
+            dispatch(login(userData))
+            navigate('/');
+        }
     }
+    
 
     
   return (
