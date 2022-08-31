@@ -4,7 +4,7 @@ import './index.css';
 import App from './components/App';
 import './styles/fonts/fonts.css'
 
-import rootReducer from "./reducers";
+import rootReducer from "./_reducers";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
 

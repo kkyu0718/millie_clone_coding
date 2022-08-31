@@ -1,4 +1,6 @@
+import axios from 'axios'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 const Section = styled.div`
         width : 35vw;
@@ -36,25 +38,29 @@ const Section = styled.div`
   `
 
 function LoginSection() {
-    const [PhoneNumber, setPhoneNumber] = useState("")
+    const dispatch = useDispatch()
+
+    const [Username, setUsername] = useState("")
     const [Password, setPassword] = useState("")
     
-    const onPhoneNumberHandler = (event) => {
-        setPhoneNumber(event.currentTarget.value)
+    const onUsernameHandler = (event) => {
+        setUsername(event.currentTarget.value)
     }
     
     const onPasswordHandler = (event) => {
         setPassword(event.currentTarget.value)
     }
+    
     const submitHandler = (e)=>{
         e.preventDefault()
 
         let body = {
-            phoneNumber: PhoneNumber,
+            username: Username,
             password: Password
         }
 
-        console.log(body)
+        axios.post('http://localhost:5000/auth/signin', body)
+            .then(res => res.data)
     }
 
     
@@ -67,7 +73,7 @@ function LoginSection() {
             </div>
             <div style={{display : 'flex', flexDirection: 'column'}}>
                 <form onSubmit={submitHandler}>
-                    <div><Input value = {PhoneNumber} type= "text" placeholder='01012345678' onChange={onPhoneNumberHandler}></Input></div>
+                    <div><Input value = {Username} type= "text" placeholder='01012345678' onChange={onUsernameHandler}></Input></div>
                     <div><Input value = {Password} type= "password" placeholder='비밀번호 입력' onChange={onPasswordHandler}></Input></div>
                     <Button type = 'submit'>로그인</Button>
 
