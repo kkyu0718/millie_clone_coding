@@ -11,7 +11,6 @@ export function login(userData) {
 }
 
 export function logout(){
-    console.log("user action logout")
     return {
         type: LOGOUT
     }

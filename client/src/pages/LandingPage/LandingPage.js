@@ -12,6 +12,7 @@ import axios from 'axios'
 import {API_KEY} from '../../api/config'
 import Sidebar from '../../components/views/SideBar/SideBar'
 import LowBar from '../../components/views/SideBar/LowBar'
+import { useSelector } from 'react-redux'
 
 function LandingPage() {
 
@@ -21,6 +22,8 @@ function LandingPage() {
   // }
   
   const [Width, setWidth] = useState(0)
+  const user = useSelector(store => store.user)
+  const username = user.loginSuccess?.username
 
   const MainPageRef = useRef()
 
@@ -64,7 +67,7 @@ function LandingPage() {
 
         <Container>
           <div style={{ width : '80vw'}}>
-          <MyInfo/>
+          {username && <MyInfo username = {username}/>}
           <Recommendation/>
           <Rank/>
           <Today/>

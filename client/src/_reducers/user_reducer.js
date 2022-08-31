@@ -7,13 +7,12 @@ export default function (state = {}, action) {
         case LOGIN:
             return {loginSuccess: action.payload }
         case LOGOUT:
-            return {...state, logoutSuccess: "hi"} 
+            return {loginSuccess: null} 
         //     break;
         // case AUTH_USER:
         //     return { ...state, userData: action.payload }
         //     break;
         default:
-            return {initial : "initial"}
             return state;
     }
 }

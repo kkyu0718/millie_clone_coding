@@ -1,13 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
-function MyInfo() {
-  
+function MyInfo(props) {
+  const user = useSelector(store => store.user)
+  const username = user.loginSuccess ? user.loginSuccess.username : "회원"
 
 
   return (<>
         <div style = {{ display : 'flex', justifyContent : 'space-between', width : '100%', marginTop : '60px' , alignItems : 'flex-end'}}>
-          <div style={{ fontSize : '20px', fontFamily : 'KoPubDotumMedium'}}>책읽는잠만보님</div>
+          <div style={{ fontSize : '20px', fontFamily : 'KoPubDotumMedium'}}>{props.username} 님</div>
           <div style={{ fontSize : '10px', color : 'var(--darkgray)'}}>8일 5밀리</div>
         </div>
         <div style = {{display : 'flex', 
