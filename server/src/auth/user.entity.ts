@@ -12,4 +12,8 @@ export class User extends BaseEntity {
     @Column()
     password: string;
 
+     // refresh token 저장
+    @Column({  nullable: true  })
+    refreshToken?: string;
+
 }

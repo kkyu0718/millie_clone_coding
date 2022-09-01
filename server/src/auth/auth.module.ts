@@ -11,10 +11,12 @@ import { UserRepository } from './user.repository';
   imports: [
     PassportModule.register({ defaultStrategy : 'jwt' }),
     JwtModule.register({
-    secret: 'Secret1234',
-    signOptions: {
-      expiresIn: 60*60,
-    }}),
+    secret: 'Secret1234', // 암호화에 쓰일 key
+    // signOptions: {
+    //   expiresIn: 60*60,
+    // }
+    }
+    ),
     TypeOrmModule.forFeature( [UserRepository] )
   ], 
   controllers: [AuthController],

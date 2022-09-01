@@ -5,6 +5,8 @@ import { User } from './user.entity';
 import { UserRepository } from './user.repository';
 import * as bcrypt from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
+import { UserInfoDto } from './dto/user-info.dto';
+import { response } from 'express';
 
 @Injectable()
 export class AuthService {
@@ -18,17 +20,25 @@ export class AuthService {
         return this.userRepository.createUser(authCredentialsDto)
     }
 
-    async signIn(authCredentialsDto: AuthCredentialsDto): Promise<{accessToken: string, username: string}> {
+    async signIn(authCredentialsDto: AuthCredentialsDto): Promise<UserInfoDto> {
         const {username, password} = authCredentialsDto;
         const user = await this.userRepository.findOneBy({username});
 
         if ( user && (await bcrypt.compare(password, user.password ))) {
             const payload = { username }
-            const accessToken = await this.jwtService.sign(payload)
-            return {accessToken, username}
+            
+            const accessToken = await this.jwtService.sign(payload, {expiresIn : 60*60}) // 1hour
+            const refreshToken = await this.jwtService.sign(payload, {expiresIn : 60*60*24}) // 24hour
+            const cookie = {accessToken, refreshToken}
+
+            await this.userRepository.saveRefreshToken(user, refreshToken)
+            return {payload, cookie}
         } else {
             throw new UnauthorizedException('Login Failed')
         }
     }
-    
+
+    async signOut(user: User){
+        await this.userRepository.removeRefreshToken(user)
+    }
 }
