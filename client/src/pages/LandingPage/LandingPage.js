@@ -22,8 +22,7 @@ function LandingPage() {
   // }
   
   const [Width, setWidth] = useState(0)
-  const user = useSelector(store => store.user)
-  const username = user.loginSuccess?.username
+  const user = useSelector(store => store.user_reducer.user)
 
   const MainPageRef = useRef()
 
@@ -67,7 +66,7 @@ function LandingPage() {
 
         <Container>
           <div style={{ width : '80vw'}}>
-          {username && <MyInfo username = {username}/>}
+          {user && <MyInfo username = {user.username}/>}
           <Recommendation/>
           <Rank/>
           <Today/>

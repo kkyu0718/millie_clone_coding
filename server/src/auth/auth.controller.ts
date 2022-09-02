@@ -21,17 +21,16 @@ export class AuthController {
     signIn(@Body(ValidationPipe) authCredentialsDto: AuthCredentialsDto,
             @Res({passthrough: true}) response: Response){
         
-        const username = this.authService.signIn(authCredentialsDto)
+        const user = this.authService.signIn(authCredentialsDto)
             .then(res => {
                             const {accessToken, refreshToken} = res.cookie
-                            const {username} = res.payload
                                                         
                             response.cookie('accessToken', accessToken);
                             response.cookie('refreshToken', refreshToken);
-                            return username
+                            return res.user
                         })
             
-        return username
+        return user
     }
 
     @Post('/signout')

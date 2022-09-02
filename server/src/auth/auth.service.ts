@@ -25,14 +25,13 @@ export class AuthService {
         const user = await this.userRepository.findOneBy({username});
 
         if ( user && (await bcrypt.compare(password, user.password ))) {
-            const payload = { username }
-            
-            const accessToken = await this.jwtService.sign(payload, {expiresIn : 60*60}) // 1hour
-            const refreshToken = await this.jwtService.sign(payload, {expiresIn : 60*60*24}) // 24hour
+            const payload = username
+            const accessToken = await this.jwtService.sign({payload}, {expiresIn : 60*60}) // 1hour
+            const refreshToken = await this.jwtService.sign({payload}, {expiresIn : 60*60*24}) // 24hour
             const cookie = {accessToken, refreshToken}
 
             await this.userRepository.saveRefreshToken(user, refreshToken)
-            return {payload, cookie}
+            return { user, cookie }
         } else {
             throw new UnauthorizedException('Login Failed')
         }

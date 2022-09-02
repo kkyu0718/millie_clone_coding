@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 function MyInfo(props) {
-  const user = useSelector(store => store.user)
-  const username = user.loginSuccess ? user.loginSuccess.username : "회원"
 
 
   return (<>

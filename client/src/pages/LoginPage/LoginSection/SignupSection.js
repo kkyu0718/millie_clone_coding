@@ -39,9 +39,7 @@ const Section = styled.div`
    
   `
 
-function LoginSection() {
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+function SignupSection(props) {
 
     const [Username, setUsername] = useState("")
     const [Password, setPassword] = useState("")
@@ -62,20 +60,20 @@ function LoginSection() {
             password: Password
         }
 
-        let userData = await axios.post('http://localhost:5000/auth/signin', body)
+        await axios.post('http://localhost:5000/auth/signup', body)
             .then(response => {
-                console.log("axios.post userData:", response.data)
+                alert("회원가입이 완료되었습니다.")
+                props.setSignup(false)
                 return response.data
             })
-            .catch(() => {
-                alert("로그인에 실패하였습니다")
+            .catch((err) => {
+                if(err.response.status == 409){
+                    alert("동일한 이름의 회원이 존재합니다.")
+                }else{
+                    console.log(err)
+                }
             })
-        
-        if(userData){
-            // console.log("loginsection dispatch login", userData)
-            await dispatch(login(userData))
-            navigate('/');
-        }
+   
 
     }
     
@@ -85,30 +83,24 @@ function LoginSection() {
     <Section>
         <Container>
             <div style = {{padding : '10px 0'}}>
-                <div style = {{fontFamily: 'KoPubDotumBold', fontSize : '24px'}}>독서와 무제한 친해지리</div>
+                <div style = {{fontFamily: 'KoPubDotumBold', fontSize : '24px'}}>회원 가입</div>
                 <div>10만 권 속에서 인생책을 찾아보세요</div>
             </div>
             <div style={{display : 'flex', flexDirection: 'column'}}>
                 <form onSubmit={submitHandler}>
                     <div><Input value = {Username} type= "text" placeholder='01012345678' onChange={onUsernameHandler}></Input></div>
                     <div><Input value = {Password} type= "password" placeholder='비밀번호 입력' onChange={onPasswordHandler}></Input></div>
-                    <Button type = 'submit'>로그인</Button>
+                    <Button type = 'submit'>회원 가입</Button>
 
                 </form>
 
 
             </div>
-            <div style = {{textAlign : 'center', margin: '10px 0'}}>
-                <span>회원가입</span>
-                <span> | </span>
-                <span>비밀번호 찾기</span>
-                <span> | </span>
-                <span>기업회원 로그인</span>
-            </div>
+      
         </Container>
 
   </Section>
   )
 }
 
-export default LoginSection
+export default SignupSection

@@ -1,9 +1,8 @@
 import { IsString, MaxLength, MinLength } from "class-validator";
+import { User } from "../user.entity";
 
 export class UserInfoDto {
-    payload : {
-        username: string;
-    }
+    user: User;
 
     cookie: {
 

@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { logout } from '../../../_actions/user_actions';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function NavBar() {
   const dispatch = useDispatch()
   const navigate = useNavigate();
-
 
   const Button = styled.button`
     height : 24px;
@@ -22,13 +22,15 @@ function NavBar() {
     cursor: pointer;
   `
   
-  const userData = useSelector(store=>store.user)
-  const [Login, setLogin] = useState(userData.loginSuccess ? true : false)
+  const user = useSelector(store=>store.user_reducer.user)
+  console.log("navbar user", user)
+  const [Login, setLogin] = useState(user ? true : false)
 
-  const logoutHandler = () => {
+  const logoutHandler = async () => {
+    await axios.post('http://localhost:5000/auth/signout', user)
     dispatch(logout())
     setLogin(false)
-  }
+}
 
   const loginHandler = () => {
     navigate('login')
@@ -45,8 +47,9 @@ function NavBar() {
           <div style = {{ display : 'flex', justifyContent : 'space-between', alignItems : 'center'}}>
             <IoIosNotificationsOutline style = {{  height : '20px', width : '20px', margin : '5px' }}/>
             {Login ? 
-              <Button onClick={logoutHandler}>로그아웃</Button>: 
-              <Button onClick={loginHandler}>로그인</Button>
+              <Button onClick={logoutHandler}>로그아웃</Button> :
+              <Button onClick={loginHandler}>로그인</Button> 
+
             }
           </div>
         </div>

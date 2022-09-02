@@ -9,7 +9,8 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 
 // 위에서 만든 reducer를 스토어 만들때 넣어줍니다
-const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(rootReducer, 
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
   <Provider store = {store}>

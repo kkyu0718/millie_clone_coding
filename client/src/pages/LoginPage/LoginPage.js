@@ -2,13 +2,19 @@ import React from 'react'
 import { useState } from 'react'
 import styled from 'styled-components'
 import LoginSection from './LoginSection/LoginSection'
+import SignupSection from './LoginSection/SignupSection'
 
 function LoginPage() {
   
   const [Login, setLogin] = useState(false)
+  const [Signup, setSignup] = useState(false)
 
   const loginHandler = () => {
     setLogin(true)
+  }
+
+  const signupHandler = () => {
+    setSignup(true)
   }
 
   const Page = styled.div`
@@ -80,6 +86,13 @@ function LoginPage() {
       <LoginSection/>
       </div>
       )
+    } else if (Signup){
+      return (<div style = {{display : 'flex'}}>
+      <Page style = {{width : '65vw'}}></Page>
+      <SignupSection setSignup = {setSignup}/>
+      </div>
+      )
+
     } else{
       return (
     <Page>
@@ -93,7 +106,7 @@ function LoginPage() {
         </TitleContainer>
         <LoginContainer>
           <Button onClick = {loginHandler}>로그인</Button>
-          <SignUp>회원이 아니신가요? 회원가입</SignUp>
+          <SignUp onClick = {signupHandler}>회원이 아니신가요? 회원가입</SignUp>
         </LoginContainer>
       </Container>
     </Page>)
