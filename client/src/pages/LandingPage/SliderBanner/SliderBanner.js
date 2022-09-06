@@ -146,7 +146,7 @@ function SliderBanner({Width}) {
             
         >   
         {Slides.map((slide, index) => {
-            return (<Card_slide key = {index} style = {{width : Width, display : 'flex', justifyContent: 'center',
+            return (<Card_slide key = {index} style = {{width : Width, height : '400px',display : 'flex', justifyContent: 'center',
                                 background : `linear-gradient(90deg, ${Color[(index)%Color.length]}, ${Color[(index+1)%Color.length]})`}}>
                         <div style={{fontFamily : 'KoPubDotumMedium', 
                                     fontSize : '20px', 
