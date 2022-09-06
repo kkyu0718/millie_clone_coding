@@ -42,7 +42,7 @@ function SliderBanner({Width}) {
         border : transparent;
         background : transparent;
         position : absolute;
-        top : 50%;
+        top : 40%;
         cursor : pointer;
     `
 
