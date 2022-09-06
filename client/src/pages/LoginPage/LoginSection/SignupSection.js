@@ -63,6 +63,7 @@ function SignupSection(props) {
         await axios.post('http://localhost:5000/auth/signup', body)
             .then(response => {
                 alert("회원가입이 완료되었습니다.")
+                console.log("회원가입 성공", response)
                 props.setSignup(false)
                 return response.data
             })

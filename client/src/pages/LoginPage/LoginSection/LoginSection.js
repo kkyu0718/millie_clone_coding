@@ -67,8 +67,9 @@ function LoginSection() {
                 console.log("axios.post userData:", response.data)
                 return response.data
             })
-            .catch(() => {
+            .catch((err) => {
                 alert("로그인에 실패하였습니다")
+                console.log(err)
             })
         
         if(userData){
