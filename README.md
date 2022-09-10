@@ -50,6 +50,7 @@ npm run client
 <li>인터파크 book api 이용한 추천도서 베스트셀러 슬라이더</li>
 <li>슬라이더 라이브러리 없이 구현</li>
 </ul>
+
 ### Server 구성
 <img src = "https://user-images.githubusercontent.com/80209277/188686079-40eed191-7038-4d3a-a4e8-69939ff32ace.png" width="80%" height="80%">
 <ul> 
